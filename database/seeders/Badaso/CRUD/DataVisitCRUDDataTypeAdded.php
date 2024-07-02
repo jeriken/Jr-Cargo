@@ -36,7 +36,7 @@ class DataVisitCRUDDataTypeAdded extends Seeder
                 'icon' => NULL,
                 'model_name' => NULL,
                 'policy_name' => NULL,
-                'controller' => NULL,
+                'controller' => 'App\\Http\\Controllers\\DataVisitController',
                 'order_column' => NULL,
                 'order_display_column' => NULL,
                 'order_direction' => NULL,
@@ -48,7 +48,7 @@ class DataVisitCRUDDataTypeAdded extends Seeder
                 'notification' => '[]',
                 'is_soft_delete' => false,
                 'created_at' => '2024-06-28T02:15:37.000000Z',
-                'updated_at' => '2024-06-28T02:48:57.000000Z',
+                'updated_at' => '2024-06-29T11:43:36.000000Z',
             ));
 
             Badaso::model('Permission')->generateFor('data_visit');

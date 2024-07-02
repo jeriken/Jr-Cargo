@@ -45,7 +45,7 @@ class DataVisitCRUDDataRowAdded extends Seeder
                     'field' => 'user_id',
                     'type' => 'relation',
                     'display_name' => 'User Id',
-                    'required' => 1,
+                    'required' => 0,
                     'browse' => 1,
                     'read' => 1,
                     'edit' => 0,
