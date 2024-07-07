@@ -48,7 +48,7 @@ class DataVisitCRUDDataTypeAdded extends Seeder
                 'notification' => '[]',
                 'is_soft_delete' => false,
                 'created_at' => '2024-06-28T02:15:37.000000Z',
-                'updated_at' => '2024-06-29T11:43:36.000000Z',
+                'updated_at' => '2024-07-03T07:12:21.000000Z',
             ));
 
             Badaso::model('Permission')->generateFor('data_visit');

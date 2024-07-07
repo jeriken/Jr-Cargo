@@ -17,13 +17,13 @@
                 {{ $t("action.exportToExcel") }}
               </badaso-dropdown-item>
             </download-excel>
-            <badaso-dropdown-item
+            <!-- <badaso-dropdown-item
               icon="file_upload"
               v-if="$helper.isAllowedToModifyGeneratedCRUD('browse', dataType)"
               @click="generatePdf"
             >
               {{ $t("action.exportToPdf") }}
-            </badaso-dropdown-item>
+            </badaso-dropdown-item> -->
             <badaso-dropdown-item
               icon="add"
               :to="{ name: 'CrudGeneratedAdd' }"
@@ -124,10 +124,10 @@
                 >
                   <template slot="thead">
                     <vs-th sort-key="judul">
-                      {{ dataType.dataRows[2].displayName }}
+                      {{ dataType.dataRows[1].displayName }}
                     </vs-th>
                     <vs-th sort-key="judul">
-                      {{ dataType.dataRows[3].displayName }}
+                      {{ dataType.dataRows[2].displayName }}
                     </vs-th>
                     <vs-th sort-key="judul">
                       {{ dataType.dataRows[10].displayName }}
