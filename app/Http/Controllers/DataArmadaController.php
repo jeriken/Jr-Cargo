@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Exception;
-use App\Models\DataVisit;
+use App\Models\DataArmada;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Uasoft\Badaso\Helpers\GetData;
@@ -12,15 +12,23 @@ use Uasoft\Badaso\Helpers\ApiResponse;
 use Uasoft\Badaso\Controllers\BadasoBaseController;
 use Uasoft\Badaso\Helpers\Firebase\FCMNotification;
 
-class DataVisitController extends BadasoBaseController
+class DataArmadaController extends BadasoBaseController
 {
+
     public function browse(Request $request)
     {
         $limit = $request->get('limit');
         $page = $request->get('page');
         try {
+            // $slug = $this->getSlug($request);
 
-            $data = DataVisit::with('user')->paginate($limit,['*'],'page',$page);
+            // $data_type = $this->getDataType($slug);
+
+            // $only_data_soft_delete = $request->showSoftDelete == 'true';
+
+            // $data = $this->getDataList($slug, $request->all(), $only_data_soft_delete);
+
+            $data = DataArmada::with('user')->paginate($limit,['*'],'page',$page);
 
             return ApiResponse::onlyEntity($data);
         } catch (Exception $e) {

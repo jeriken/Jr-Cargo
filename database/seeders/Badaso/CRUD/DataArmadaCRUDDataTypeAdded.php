@@ -6,7 +6,7 @@ use Illuminate\Database\Seeder;
 use Uasoft\Badaso\Facades\Badaso;
 use Uasoft\Badaso\Models\MenuItem;
 
-class DataVisitCRUDDataTypeAdded extends Seeder
+class DataArmadaCRUDDataTypeAdded extends Seeder
 {
     /**
      * Auto generated seed file
@@ -21,22 +21,22 @@ class DataVisitCRUDDataTypeAdded extends Seeder
 
         try {
 
-            $data_type = Badaso::model('DataType')->where('name', 'data_visit')->first();
+            $data_type = Badaso::model('DataType')->where('name', 'data_armada')->first();
 
             if ($data_type) {
-                Badaso::model('DataType')->where('name', 'data_visit')->delete();
+                Badaso::model('DataType')->where('name', 'data_armada')->delete();
             }
 
             \DB::table('badaso_data_types')->insert(array (
-                'id' => 1,
-                'name' => 'data_visit',
-                'slug' => 'data-visit',
-                'display_name_singular' => 'Data Visit',
-                'display_name_plural' => 'Data Visit',
-                'icon' => 'flight',
+                'id' => 3,
+                'name' => 'data_armada',
+                'slug' => 'data-armada',
+                'display_name_singular' => 'Data Armada',
+                'display_name_plural' => 'Data Armada',
+                'icon' => 'local_taxi',
                 'model_name' => NULL,
                 'policy_name' => NULL,
-                'controller' => 'App\\Http\\Controllers\\DataVisitController',
+                'controller' => 'App\\Http\\Controllers\\DataArmadaController',
                 'order_column' => NULL,
                 'order_display_column' => NULL,
                 'order_direction' => NULL,
@@ -47,41 +47,41 @@ class DataVisitCRUDDataTypeAdded extends Seeder
                 'details' => NULL,
                 'notification' => '[]',
                 'is_soft_delete' => false,
-                'created_at' => '2024-06-28T02:15:37.000000Z',
-                'updated_at' => '2024-07-09T10:05:32.000000Z',
+                'created_at' => '2024-07-07T05:41:09.000000Z',
+                'updated_at' => '2024-07-09T10:08:56.000000Z',
             ));
 
-            Badaso::model('Permission')->generateFor('data_visit');
+            Badaso::model('Permission')->generateFor('data_armada');
 
             $menu = Badaso::model('Menu')->where('key', config('badaso.default_menu'))->firstOrFail();
 
             $menu_item = Badaso::model('MenuItem')
                 ->where('menu_id', $menu->id)
-                ->where('url', '/general/data-visit')
+                ->where('url', '/general/data-armada')
                 ->first();
 
             $order = Badaso::model('MenuItem')->highestOrderMenuItem($menu->id);
 
             if (!is_null($menu_item)) {
                 $menu_item->fill([
-                    'title' => 'Data Visit',
+                    'title' => 'Data Armada',
                     'target' => '_self',
-                    'icon_class' => 'flight',
+                    'icon_class' => 'local_taxi',
                     'color' => null,
                     'parent_id' => null,
-                    'permissions' => 'browse_data_visit',
+                    'permissions' => 'browse_data_armada',
                     'order' => $order,
                 ])->save();
             } else {
                 $menu_item = new MenuItem();
                 $menu_item->menu_id = $menu->id;
-                $menu_item->url = '/general/data-visit';
-                $menu_item->title = 'Data Visit';
+                $menu_item->url = '/general/data-armada';
+                $menu_item->title = 'Data Armada';
                 $menu_item->target = '_self';
-                $menu_item->icon_class = 'flight';
+                $menu_item->icon_class = 'local_taxi';
                 $menu_item->color = null;
                 $menu_item->parent_id = null;
-                $menu_item->permissions = 'browse_data_visit';
+                $menu_item->permissions = 'browse_data_armada';
                 $menu_item->order = $order;
                 $menu_item->save();
             }

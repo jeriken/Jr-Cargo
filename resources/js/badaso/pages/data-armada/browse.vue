@@ -130,10 +130,16 @@
                       {{ dataType.dataRows[2].displayName }}
                     </vs-th>
                     <vs-th sort-key="judul">
-                      {{ dataType.dataRows[10].displayName }}
+                      {{ dataType.dataRows[4].displayName }}
                     </vs-th>
                     <vs-th sort-key="judul">
-                      {{ dataType.dataRows[12].displayName }}
+                      {{ dataType.dataRows[7].displayName }}
+                    </vs-th>
+                    <vs-th sort-key="judul">
+                      {{ dataType.dataRows[26].displayName }}
+                    </vs-th>
+                    <vs-th sort-key="judul">
+                      {{ dataType.dataRows[42].displayName }}
                     </vs-th>
                     <vs-th> {{ $t("crudGenerated.header.action") }} </vs-th>
                   </template>
@@ -147,14 +153,20 @@
                       <vs-td :data="rec.user.name">
                         {{ rec.user.name }}
                       </vs-td>
-                      <vs-td :data="rec.custDate">
-                        {{ date(rec.custDate) }}
+                      <vs-td :data="rec.armadaUnit">
+                        {{ rec.armadaUnit }}
                       </vs-td>
-                      <vs-td :data="rec.usahaNama">
-                        {{ rec.usahaNama }}
+                      <vs-td :data="rec.armadaNomor">
+                        {{ rec.armadaNomor }}
                       </vs-td>
-                      <vs-td :data="rec.barangKategori">
-                        {{ rec.barangKategori }}
+                      <vs-td :data="rec.kondisiBersih">
+                        {{ rec.kondisiBersih }}
+                      </vs-td>
+                      <vs-td :data="rec.rodaKondisi">
+                        {{ rec.rodaKondisi }}
+                      </vs-td>
+                      <vs-td :data="rec.dateService">
+                        {{ date(rec.dateService) }}
                       </vs-td>
                       <vs-td class="crud-generated__button">
                         <badaso-dropdown vs-trigger-click>

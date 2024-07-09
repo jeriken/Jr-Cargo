@@ -15,4 +15,13 @@ class DataVisit extends Model
     {
         return ($value == 1) ? "Tertarik" : "Tidak Tertarik";
     }
+
+    public function getLayananCodAttribute($value)
+    {
+        return ($value == 1) ? "Ya" : "Tidak";
+    }
+
+    public function user(){
+        return $this->belongsTo(BadasoUser::class, 'user_id', 'id');
+    }
 }

@@ -23,5 +23,7 @@ class BadasoDeploymentOrchestratorSeeder extends Seeder
         $this->seed(DataVisitCRUDDataDeleted::class);
         $this->seed(DataVisitCRUDDataTypeAdded::class);
         $this->seed(DataVisitCRUDDataRowAdded::class);
+        $this->seed(DataArmadaCRUDDataTypeAdded::class);
+        $this->seed(DataArmadaCRUDDataRowAdded::class);
     }
 }
