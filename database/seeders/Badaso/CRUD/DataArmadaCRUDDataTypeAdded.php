@@ -48,7 +48,7 @@ class DataArmadaCRUDDataTypeAdded extends Seeder
                 'notification' => '[]',
                 'is_soft_delete' => false,
                 'created_at' => '2024-07-07T05:41:09.000000Z',
-                'updated_at' => '2024-07-09T10:08:56.000000Z',
+                'updated_at' => '2024-07-26T07:24:32.000000Z',
             ));
 
             Badaso::model('Permission')->generateFor('data_armada');

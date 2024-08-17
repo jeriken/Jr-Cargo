@@ -533,6 +533,16 @@
                     errors[$caseConvert.stringSnakeToCamel(dataType.dataRows[44].field)]
                   "
                 ></badaso-textarea>
+                <badaso-select
+                    :label="dataType.dataRows[47].displayName"
+                    :placeholder="dataType.dataRows[47].displayName"
+                    v-model="dataType.dataRows[47].value"
+                    size="12"
+                    :alert="
+                      errors[$caseConvert.stringSnakeToCamel(dataType.dataRows[47].field)]
+                    "
+                    :items="dataType.dataRows[47].details.items ? dataType.dataRows[47].details.items : []"
+                ></badaso-select>
               </vs-row>
             </vs-card>
           </vs-col>

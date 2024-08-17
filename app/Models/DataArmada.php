@@ -16,6 +16,11 @@ class DataArmada extends Model
         return ($value == 1) ? "Bersih" : "Buruk";
     }
 
+    public function getStatusAttribute($value)
+    {
+        return ($value == 1) ? "Sudah Servis" : "Belum Servis";
+    }
+
     public function getLampuSeinAttribute($value)
     {
         switch ($value) {

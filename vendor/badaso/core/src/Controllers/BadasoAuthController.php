@@ -100,11 +100,19 @@ class BadasoAuthController extends Controller
                 'email'    => $request->email,
                 'password' => $request->password,
             ];
+            $credentials2 = [
+                'username'    => $request->email,
+                'password' => $request->password,
+            ];
+            $credentials3 = [
+                'phone'    => $request->email,
+                'password' => $request->password,
+            ];
             $request->validate([
                 'email' => [
                     'required',
-                    function ($attribute, $value, $fail) use ($credentials) {
-                        if (! $token = auth()->attempt($credentials)) {
+                    function ($attribute, $value, $fail) use ($credentials, $credentials2, $credentials3) {
+                        if (! $token = auth()->attempt($credentials) || $token = auth()->attempt($credentials2) || $token = auth()->attempt($credentials3)) {
                             $fail(__('badaso::validation.auth.invalid_credentials'));
                         }
                     },
@@ -135,7 +143,14 @@ class BadasoAuthController extends Controller
             }
 
             $ttl = $this->getTTL($remember);
-            $token = auth()->setTTL($ttl)->attempt($credentials);
+            $user = auth()->user();
+            if($user->email == $request->email){
+                $token = auth()->setTTL($ttl)->attempt($credentials);
+            }else if($user->username == $request->email){
+                $token = auth()->setTTL($ttl)->attempt($credentials2);
+            }else{
+                $token = auth()->setTTL($ttl)->attempt($credentials3);
+            }
 
             activity('Authentication')
                 ->causedBy(auth()->user() ?? null)

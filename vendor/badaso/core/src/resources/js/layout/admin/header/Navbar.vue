@@ -43,7 +43,7 @@
         </div>
       </div>
       <div slot="left_menu">
-        <vs-dropdown vs-trigger-click class="top-navbar__i18n-container">
+        <!-- <vs-dropdown vs-trigger-click class="top-navbar__i18n-container">
           <a href="#" :style="{ color: topbarFontColor }">
             {{ getSelectedLocale.label }}
             <vs-icon icon="expand_more" size="small"></vs-icon>
@@ -60,7 +60,7 @@
           </vs-dropdown-menu>
 
 
-        </vs-dropdown>
+        </vs-dropdown> -->
 
 
 

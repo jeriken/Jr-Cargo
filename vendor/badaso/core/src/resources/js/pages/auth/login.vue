@@ -10,7 +10,7 @@
             icon="person"
             icon-after
             size="default"
-            :placeholder="$t('login.field.email')"
+            placeholder="Email / Username / Phone"
             v-model="email"
             class="login__input"
           />

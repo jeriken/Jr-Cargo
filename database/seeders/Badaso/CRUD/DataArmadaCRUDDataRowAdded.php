@@ -1134,6 +1134,33 @@ class DataArmadaCRUDDataRowAdded extends Seeder
                     'relation' => NULL,
                     'order' => 47,
                 ),
+                47 => 
+                array (
+                    'data_type_id' => $data_type->id,
+                    'field' => 'status',
+                    'type' => 'select',
+                    'display_name' => 'Service',
+                    'required' => 1,
+                    'browse' => 1,
+                    'read' => 1,
+                    'edit' => 1,
+                    'add' => 1,
+                    'delete' => 1,
+                    'details' => '{
+"items": [
+{
+"label": "Sudah",
+"value": "1"
+},
+{
+"label": "Belum",
+"value": "0"
+}
+]
+}',
+                    'relation' => NULL,
+                    'order' => 48,
+                ),
             ));
 
             \DB::commit();

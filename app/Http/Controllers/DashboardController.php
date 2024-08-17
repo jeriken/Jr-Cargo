@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\DataVisit;
+use App\Models\DataArmada;
 use Uasoft\Badaso\Helpers\ApiResponse;
 
 class DashboardController extends Controller
@@ -17,6 +18,7 @@ class DashboardController extends Controller
             $data['penjualan'] = DataVisit::selectRaw("jual_scope, count(*) as total")->groupBy('jual_scope')->get();
             $data['pengiriman'] = DataVisit::selectRaw("kirim_model, count(*) as total")->groupBy('kirim_model')->get();
             $data['partner'] = DataVisit::selectRaw("partner_status, count(*) as total")->groupBy('partner_status')->get();
+            $data['armada'] = DataArmada::where('status', '=', '0')->get();
             return ApiResponse::onlyEntity($data);
         } catch (Exception $e) {
             return ApiResponse::failed($e);

@@ -36,6 +36,30 @@ class DataArmadaController extends BadasoBaseController
         }
     }
 
+    public function read(Request $request)
+    {
+        try {
+            $request->validate([
+                'id' => 'required',
+            ]);
+            $slug = $this->getSlug($request);
+            $data_type = $this->getDataType($slug);
+            $request->validate([
+                'id' => 'exists:'.$data_type->name,
+            ]);
+
+            $data = $this->getDataDetail($slug, $request->id);
+            // $data = DataArmada::with('user')->findOrFail($request->id);
+            // add event notification handle
+            $table_name = $data_type->name;
+            FCMNotification::notification(FCMNotification::$ACTIVE_EVENT_ON_READ, $table_name);
+
+            return ApiResponse::onlyEntity($data);
+        } catch (Exception $e) {
+            return ApiResponse::failed($e);
+        }
+    }
+
     public function add(Request $request)
     {
         DB::beginTransaction();
